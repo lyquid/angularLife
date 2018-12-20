@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/lyquid/angularLife.svg?branch=develop)](https://travis-ci.com/lyquid/angularLife)
+
 # AngularLife
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
