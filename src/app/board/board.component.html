@@ -1,0 +1,24 @@
+<!-- <table>
+  <tr *ngFor="let x of board; let i = index">
+    <td *ngFor="let y of x; let j = index">
+      {{board[i][j]}}
+    </td>
+  </tr>
+</table> -->
+
+<!-- <div class="grid-container">
+  <div *ngFor="let x of board.getLayout(); let i = index">
+    <div *ngFor="let y of x; let j = index" class="grid-item">
+      {{board.getLayout()[i][j]}} 
+    </div>
+  </div>
+</div> -->
+
+<div class="grid-container">
+  <div *ngFor="let x of board.getLayout()">
+    <div *ngFor="let y of x" class="grid-item">
+      <div *ngIf="y===1" class="cell"></div>
+      <div *ngIf="y===0"></div>
+    </div>
+  </div>
+</div>

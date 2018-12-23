@@ -10,6 +10,7 @@ import {
 } from '@angular/material';
 
 import { NavbarComponent } from './navbar.component';
+import { BoardComponent } from '../board/board.component';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -17,7 +18,10 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NavbarComponent],
+      declarations: [
+        NavbarComponent,
+        BoardComponent
+      ],
       imports: [
         NoopAnimationsModule,
         LayoutModule,

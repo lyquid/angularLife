@@ -5,6 +5,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { AppCustomMaterialModule } from './app-custom-material.module';
 
 import { NavbarComponent } from './navbar/navbar.component';
+import { BoardComponent } from './board/board.component';
 
 
 describe('AppComponent', () => {
@@ -12,7 +13,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+        BoardComponent
       ],
       imports: [
         BrowserAnimationsModule,
