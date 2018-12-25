@@ -5,6 +5,9 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar>Options</mat-toolbar>
     <mat-nav-list>
+      <!-- <button mat-flat-button color="primary" [disabled]="!isPaused()" (click)="play()">Play</button>
+      <button mat-flat-button color="accent" [disabled]="isPaused()" (click)="pause()">Pause</button>
+      <button mat-flat-button color="warn" (click)="reset()">Reset</button> -->
       <a mat-list-item href="#">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>

@@ -3,19 +3,19 @@ export class Board {
   private readonly height: number = null;
   private readonly width: number = null;
   private readonly requestedPopulation: number = null;
-  private currentPopulation: number = null;
+  // private currentPopulation: number = null;
   private turn: number;
 
   constructor(height: number, width: number, population: number) {
     this.height = height;
     this.width = width;
     this.requestedPopulation = population;
-    this.layout = this.createBoard(this.height, this.width, this.requestedPopulation);
-    this.currentPopulation = this.getCurrentPopulation();
+    this.layout = this.createLayout(this.height, this.width, this.requestedPopulation);
+    // this.currentPopulation = this.getCurrentPopulation();
     this.turn = 1;
   }
 
-  private createBoard(height: number, width: number, population: number): [][] {
+  private createLayout(height: number, width: number, population: number): [][] {
     const matrix = [];
     const totalBoxes = height * width;
     if (height <= 0 || width <= 0 || population > 100) {
@@ -30,6 +30,8 @@ export class Board {
     return this.generateCells(matrix, totalBoxes, population);
   }
 
+  // no entiendo pq si pongo layout: [][] marca como incorrecto populatedMatrix[i][j] = 1,
+  // aunque funciona perfectamente
   private generateCells(layout: any[], totalBoxes: number, population: number): [][] {
     const maxCells = Math.floor((totalBoxes * population) / 100);
     const populatedMatrix = layout;
@@ -60,6 +62,10 @@ export class Board {
     return this.width;
   }
 
+  getTurn(): number {
+    return this.turn;
+  }
+
   getCurrentPopulation(): number {
     let count = 0;
     if (this.layout) {
@@ -70,8 +76,8 @@ export class Board {
           }
         }
       }
-      this.currentPopulation = count;
-      return this.currentPopulation;
+      // this.currentPopulation = count;
+      return count;
     } else {
       return 0;
     }
@@ -81,25 +87,38 @@ export class Board {
     return this.turn;
   }
 
-  nextTurn(): [][] {
-    const nextLayout = this.layout;
+  nextTurn(): void {
+    const nextLayout = [];
     for (let i = 0; i < this.layout.length; i++) {
+      nextLayout[i] = [];
       for (let j = 0; j < this.layout[i].length; j++) {
+        nextLayout[i][j] = this.layout[i][j];
         if (this.layout[i][j] === 1) {
-          if (this.checkNeighbors(this.layout[i][j]) >= 3 || this.checkNeighbors(this.layout[i][j]) <= 1) {
+          if (this.checkNeighbors(i, j) < 2 || this.checkNeighbors(i, j) > 3) {
             nextLayout[i][j] = 0;
           }
         } else {
-          if (this.checkNeighbors(this.layout[i][j] === 2)) {
+          if (this.checkNeighbors(i, j) === 3) {
             nextLayout[i][j] = 1;
           }
         }
       }
     }
-    return this.layout = nextLayout;
+    this.layout = nextLayout;
+    this.turn++;
   }
 
-  private checkNeighbors(box: any): number {
-    return null;
+  checkNeighbors(x: number, y: number): number {
+    let count = 0;
+    for (let i = x - 1; i <= x + 1; i++) {
+      for (let j = y - 1; j <= y + 1; j++) {
+        if (i >= 0 && j >= 0 && i < this.layout.length && j < this.layout[x].length) {
+          if (this.layout[i][j] === 1 && (i !== x || j !== y)) {
+            count++;
+          }
+        }
+      }
+    }
+    return count;
   }
 }

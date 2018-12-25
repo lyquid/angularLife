@@ -13,12 +13,26 @@
     </div>
   </div>
 </div> -->
+<mat-toolbar>
+  <mat-toolbar-row>
+    paused = {{isPaused()}}
+    &nbsp;
+    turn = {{board.getTurn()}}
+    &nbsp;
+    totalPopulation = {{board.getCurrentPopulation()}}
+  </mat-toolbar-row>
+</mat-toolbar>
 
 <div class="grid-container">
-  <div *ngFor="let x of board.getLayout()">
-    <div *ngFor="let y of x" class="grid-item">
-      <div *ngIf="y===1" class="cell"></div>
-      <div *ngIf="y===0"></div>
+  <div *ngFor="let x of layout; let i = index">
+    <div *ngFor="let y of x; let j = index" class="grid-item">
+      <div *ngIf="y===1" class="cell">{{board.checkNeighbors(i, j)}}</div>
+      <div *ngIf="y===0">{{board.checkNeighbors(i, j)}}</div>
     </div>
   </div>
 </div>
+
+<button mat-flat-button color="primary" (click)="nextTurn()">Next</button>
+<button mat-flat-button color="primary" [disabled]="!isPaused()" (click)="play()">Play</button>
+<button mat-flat-button color="accent" [disabled]="isPaused()" (click)="pause()">Pause</button>
+<button mat-flat-button color="warn" (click)="reset()">Reset</button>
