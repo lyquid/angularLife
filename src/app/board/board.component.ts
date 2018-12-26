@@ -13,8 +13,8 @@ export class BoardComponent implements OnInit {
   board: Board;
   layout: [][];
   // todo: get this from a form or something
-  boardWidth = 20;
-  boardHeight = 20;
+  boardWidth = 60;
+  boardHeight = 40;
   requestedPopulation: number = null;
 
   constructor() { }
@@ -24,8 +24,13 @@ export class BoardComponent implements OnInit {
     this.layout = this.board.getLayout();
   }
 
-  play(): void {
+  async play() {
     this.paused = false;
+    while (!this.paused) {
+      this.board.nextTurn();
+      this.layout = this.board.getLayout();
+      await this.delay(500);
+    }
   }
 
   nextTurn(): void {
@@ -35,6 +40,12 @@ export class BoardComponent implements OnInit {
 
   pause(): void {
     this.paused = true;
+  }
+
+  delay = (amount: number) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, amount);
+    });
   }
 
   @Input() reset(): void {

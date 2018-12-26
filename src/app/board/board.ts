@@ -12,7 +12,7 @@ export class Board {
     this.requestedPopulation = population;
     this.layout = this.createLayout(this.height, this.width, this.requestedPopulation);
     // this.currentPopulation = this.getCurrentPopulation();
-    this.turn = 1;
+    this.turn = 0;
   }
 
   private createLayout(height: number, width: number, population: number): [][] {

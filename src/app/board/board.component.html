@@ -26,8 +26,8 @@
 <div class="grid-container">
   <div *ngFor="let x of layout; let i = index">
     <div *ngFor="let y of x; let j = index" class="grid-item">
-      <div *ngIf="y===1" class="cell">{{board.checkNeighbors(i, j)}}</div>
-      <div *ngIf="y===0">{{board.checkNeighbors(i, j)}}</div>
+      <div *ngIf="y===1" class="cell"></div>
+      <div *ngIf="y===0"></div>
     </div>
   </div>
 </div>
