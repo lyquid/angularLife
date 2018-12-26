@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.com/lyquid/angularLife.svg?branch=develop)](https://travis-ci.com/lyquid/angularLife)
-
-[![CircleCI](https://circleci.com/gh/lyquid/angularLife/tree/develop.svg?style=svg)](https://circleci.com/gh/lyquid/angularLife/tree/develop)
+[![Build Status](https://travis-ci.com/lyquid/angularLife.svg?branch=develop)](https://travis-ci.com/lyquid/angularLife) [![CircleCI](https://circleci.com/gh/lyquid/angularLife/tree/develop.svg?style=svg)](https://circleci.com/gh/lyquid/angularLife/tree/develop)
 
 # AngularLife
 
