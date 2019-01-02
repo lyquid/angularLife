@@ -3,16 +3,16 @@ export class Board {
   private readonly height: number = null;
   private readonly width: number = null;
   private readonly requestedPopulation: number = null;
-  // private currentPopulation: number = null;
+  private currentPopulation: number = null;
   private turn: number;
 
   constructor(height: number, width: number, population: number) {
     this.height = height;
     this.width = width;
+    this.currentPopulation = 0;
+    this.turn = 0;
     this.requestedPopulation = population;
     this.layout = this.createLayout(this.height, this.width, this.requestedPopulation);
-    // this.currentPopulation = this.getCurrentPopulation();
-    this.turn = 0;
   }
 
   private createLayout(height: number, width: number, population: number): [][] {
@@ -45,6 +45,7 @@ export class Board {
       if (populatedMatrix[i][j] === 0) {
         populatedMatrix[i][j] = 1;
         currentCells++;
+        this.currentPopulation++;
       }
     }
     return populatedMatrix;
@@ -67,20 +68,7 @@ export class Board {
   }
 
   getCurrentPopulation(): number {
-    let count = 0;
-    if (this.layout) {
-      for (let i = 0; i < this.layout.length; i++) {
-        for (let j = 0; j < this.layout[i].length; j++) {
-          if (this.layout[i][j] === 1) {
-            count++;
-          }
-        }
-      }
-      // this.currentPopulation = count;
-      return count;
-    } else {
-      return 0;
-    }
+    return this.currentPopulation;
   }
 
   getCurrentTurn(): number {
@@ -96,10 +84,12 @@ export class Board {
         if (this.layout[i][j] === 1) {
           if (this.checkNeighbors(i, j) < 2 || this.checkNeighbors(i, j) > 3) {
             nextLayout[i][j] = 0;
+            this.currentPopulation--;
           }
         } else {
           if (this.checkNeighbors(i, j) === 3) {
             nextLayout[i][j] = 1;
+            this.currentPopulation++;
           }
         }
       }
