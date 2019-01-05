@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ControlService } from './control.service';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { BoardComponent } from '../board/board.component';
 
 @Component({
   selector: 'app-controls',
@@ -7,15 +8,21 @@ import { ControlService } from './control.service';
   styleUrls: ['./controls.component.scss']
 })
 export class ControlsComponent implements OnInit {
-  private isPaused: boolean;
+  @Input() boardComponent: BoardComponent;
 
-  constructor(private control: ControlService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.isPaused = true;
+  ngOnInit() { }
+
+  play() {
+    this.boardComponent.play();
   }
 
-  play() {}
-  pause() {}
-  reset() {}
+  pause() {
+    this.boardComponent.pause();
+  }
+
+  reset() {
+    this.boardComponent.reset();
+  }
 }

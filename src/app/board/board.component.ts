@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Board } from './board';
 
 @Component({
@@ -11,7 +12,6 @@ export class BoardComponent implements OnInit {
   private paused = true;
   board: Board;
   layout: [][];
-  // todo: get this from a form or something
   boardWidth = 60;
   boardHeight = 40;
   requestedPopulation: number = null;
@@ -25,16 +25,12 @@ export class BoardComponent implements OnInit {
 
   async play() {
     this.paused = false;
+    await this.delay(500);
     while (!this.paused) {
-      await this.delay(500);
       this.board.nextTurn();
       this.layout = this.board.getLayout();
+      await this.delay(500);
     }
-  }
-
-  nextTurn(): void {
-    this.board.nextTurn();
-    this.layout = this.board.getLayout();
   }
 
   pause(): void {
@@ -73,5 +69,5 @@ export class BoardComponent implements OnInit {
 
   trackByFn(index: number, item: any): number {
     return item.id; // or index
- }
+  }
 }

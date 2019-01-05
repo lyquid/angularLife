@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ControlsComponent } from './controls.component';
+import { BoardComponent } from '../board/board.component';
 
 describe('ControlsComponent', () => {
   let component: ControlsComponent;
@@ -8,7 +9,10 @@ describe('ControlsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ControlsComponent ]
+      declarations: [
+        ControlsComponent,
+        BoardComponent
+      ]
     })
     .compileComponents();
   }));
@@ -16,6 +20,7 @@ describe('ControlsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ControlsComponent);
     component = fixture.componentInstance;
+    component.boardComponent = new BoardComponent;
     fixture.detectChanges();
   });
 
