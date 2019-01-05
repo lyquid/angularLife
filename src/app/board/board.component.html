@@ -1,18 +1,3 @@
-<!-- <table>
-  <tr *ngFor="let x of board; let i = index">
-    <td *ngFor="let y of x; let j = index">
-      {{board[i][j]}}
-    </td>
-  </tr>
-</table> -->
-
-<!-- <div class="grid-container">
-  <div *ngFor="let x of board.getLayout(); let i = index">
-    <div *ngFor="let y of x; let j = index" class="grid-item">
-      {{board.getLayout()[i][j]}} 
-    </div>
-  </div>
-</div> -->
 <mat-toolbar>
   <mat-toolbar-row>
     paused = {{isPaused()}}
@@ -24,8 +9,8 @@
 </mat-toolbar>
 
 <div class="grid-container">
-  <div *ngFor="let x of layout; let i = index">
-    <div *ngFor="let y of x; let j = index" class="grid-item">
+  <div *ngFor="let x of layout; trackBy: trackByFn">
+    <div *ngFor="let y of x; trackBy: trackByFn" class="grid-item">
       <div *ngIf="y===1" class="cell"></div>
       <div *ngIf="y===0"></div>
     </div>

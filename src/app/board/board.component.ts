@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Board } from './board';
-import { ControlService } from '../controls/control.service';
 
 @Component({
   selector: 'app-board',
@@ -8,7 +7,6 @@ import { ControlService } from '../controls/control.service';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  // @Input() resetOrder: any;
   private defaultPopulation = 35;
   private paused = true;
   board: Board;
@@ -18,7 +16,7 @@ export class BoardComponent implements OnInit {
   boardHeight = 40;
   requestedPopulation: number = null;
 
-  constructor(private control: ControlService) { }
+  constructor() { }
 
   ngOnInit() {
     this.board = new Board(this.boardHeight, this.boardWidth, this.defaultPopulation);
@@ -28,9 +26,9 @@ export class BoardComponent implements OnInit {
   async play() {
     this.paused = false;
     while (!this.paused) {
+      await this.delay(500);
       this.board.nextTurn();
       this.layout = this.board.getLayout();
-      await this.delay(500);
     }
   }
 
@@ -72,4 +70,8 @@ export class BoardComponent implements OnInit {
   setBoardWidth(width: number): void {
     this.boardWidth = width;
   }
+
+  trackByFn(index: number, item: any): number {
+    return item.id; // or index
+ }
 }
