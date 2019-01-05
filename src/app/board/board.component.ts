@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Board } from './board';
+import { ControlService } from '../controls/control.service';
 
 @Component({
   selector: 'app-board',
@@ -17,7 +18,7 @@ export class BoardComponent implements OnInit {
   boardHeight = 40;
   requestedPopulation: number = null;
 
-  constructor() { }
+  constructor(private control: ControlService) { }
 
   ngOnInit() {
     this.board = new Board(this.boardHeight, this.boardWidth, this.defaultPopulation);
@@ -48,7 +49,7 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  @Input() reset(): void {
+  reset(): void {
     this.paused = true;
     this.board = null; // destroy?
     this.layout = null;

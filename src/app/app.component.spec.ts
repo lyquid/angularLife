@@ -1,12 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AppCustomMaterialModule } from './app-custom-material.module';
 
+import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BoardComponent } from './board/board.component';
-
+import { ControlsComponent } from './controls/controls.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,7 +14,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         NavbarComponent,
-        BoardComponent
+        BoardComponent,
+        ControlsComponent
       ],
       imports: [
         BrowserAnimationsModule,

@@ -11,6 +11,7 @@ import {
 
 import { NavbarComponent } from './navbar.component';
 import { BoardComponent } from '../board/board.component';
+import { ControlsComponent } from '../controls/controls.component';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -20,7 +21,8 @@ describe('NavbarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         NavbarComponent,
-        BoardComponent
+        BoardComponent,
+        ControlsComponent
       ],
       imports: [
         NoopAnimationsModule,
