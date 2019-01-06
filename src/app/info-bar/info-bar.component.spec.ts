@@ -1,25 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppCustomMaterialModule } from '../app-custom-material.module';
-import { BoardComponent } from './board.component';
-import { InfoBarComponent } from '../info-bar/info-bar.component';
+import { InfoBarComponent } from './info-bar.component';
 
-describe('BoardComponent', () => {
-  let component: BoardComponent;
-  let fixture: ComponentFixture<BoardComponent>;
+describe('InfoBarComponent', () => {
+  let component: InfoBarComponent;
+  let fixture: ComponentFixture<InfoBarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoardComponent ],
+      declarations: [ InfoBarComponent ],
       imports: [AppCustomMaterialModule]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BoardComponent);
+    fixture = TestBed.createComponent(InfoBarComponent);
     component = fixture.componentInstance;
-    component.infoBarComponent = new InfoBarComponent;
     fixture.detectChanges();
   });
 

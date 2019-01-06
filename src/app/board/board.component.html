@@ -1,13 +1,3 @@
-<!-- <mat-toolbar>
-  <mat-toolbar-row>
-    paused = {{isPaused()}} 
-    &nbsp;
-    turn = {{board.getTurn()}}
-    &nbsp;
-    totalPopulation = {{board.getCurrentPopulation()}}
-  </mat-toolbar-row>
-</mat-toolbar>
- -->
 <div class="grid-container">
   <div *ngFor="let x of layout; trackBy: trackByFn">
     <div *ngFor="let y of x; trackBy: trackByFn" class="grid-item">
@@ -16,8 +6,3 @@
     </div>
   </div>
 </div>
-
-<!-- <button mat-flat-button color="primary" (click)="nextTurn()">Next</button>
-<button mat-flat-button color="primary" [disabled]="!isPaused()" (click)="play()">Play</button>
-<button mat-flat-button color="accent" [disabled]="isPaused()" (click)="pause()">Pause</button>
-<button mat-flat-button color="warn" (click)="reset()">Reset</button> -->

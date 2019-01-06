@@ -1,17 +1,12 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatListModule,
-  MatSidenavModule,
-  MatToolbarModule,
-} from '@angular/material';
 
+import { AppCustomMaterialModule } from '../app-custom-material.module';
 import { NavbarComponent } from './navbar.component';
 import { BoardComponent } from '../board/board.component';
 import { ControlsComponent } from '../controls/controls.component';
+import { InfoBarComponent } from '../info-bar/info-bar.component';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -22,16 +17,13 @@ describe('NavbarComponent', () => {
       declarations: [
         NavbarComponent,
         BoardComponent,
-        ControlsComponent
+        ControlsComponent,
+        InfoBarComponent
       ],
       imports: [
         NoopAnimationsModule,
         LayoutModule,
-        MatButtonModule,
-        MatIconModule,
-        MatListModule,
-        MatSidenavModule,
-        MatToolbarModule,
+        AppCustomMaterialModule
       ]
     }).compileComponents();
   }));

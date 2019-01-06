@@ -24,6 +24,7 @@
       <span>angularLife</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <app-board #boardComponent></app-board>
+    <app-info-bar #infoBarComponent></app-info-bar>
+    <app-board #boardComponent [infoBarComponent]="infoBarComponent"></app-board>
   </mat-sidenav-content>
 </mat-sidenav-container>
