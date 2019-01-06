@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BoardComponent } from './board/board.component';
 import { ControlsComponent } from './controls/controls.component';
 import { InfoBarComponent } from './info-bar/info-bar.component';
+import { OptionsComponent } from './options/options.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
         NavbarComponent,
         BoardComponent,
         ControlsComponent,
-        InfoBarComponent
+        InfoBarComponent,
+        OptionsComponent
       ],
       imports: [
         BrowserAnimationsModule,

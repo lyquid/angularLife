@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppCustomMaterialModule } from '../app-custom-material.module';
 import { BoardComponent } from './board.component';
-import { InfoBarComponent } from '../info-bar/info-bar.component';
+// import { InfoBarComponent } from '../info-bar/info-bar.component';
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -19,7 +19,7 @@ describe('BoardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BoardComponent);
     component = fixture.componentInstance;
-    component.infoBarComponent = new InfoBarComponent;
+    // component.infoBarComponent = new InfoBarComponent;
     fixture.detectChanges();
   });
 

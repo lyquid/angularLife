@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Board } from './board';
-import { InfoBarComponent } from '../info-bar/info-bar.component';
 
 @Component({
   selector: 'app-board',
@@ -9,86 +8,37 @@ import { InfoBarComponent } from '../info-bar/info-bar.component';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  private defaultPopulation = 35;
-  private paused = true;
-  board: Board;
+  private board: Board;
   layout: [][];
-  boardWidth = 60;
-  boardHeight = 40;
-  requestedPopulation: number = null;
-  @Input() infoBarComponent: InfoBarComponent;
 
   constructor() { }
 
-  ngOnInit() {
-    this.board = new Board(this.boardHeight, this.boardWidth, this.defaultPopulation);
+  ngOnInit() { }
+
+  createBoard(height: number, width: number, population: number): void {
+    this.board = new Board(height, width, population);
     this.layout = this.board.getLayout();
-    this.updateInfoBar();
   }
 
-  async play() {
-    this.paused = false;
-    this.updateInfoBar();
-    await this.delay(500);
-    while (!this.paused) {
-      this.board.nextTurn();
-      this.layout = this.board.getLayout();
-      this.updateInfoBar();
-      await this.delay(500);
-    }
+  nextTurn(): void {
+    this.board.nextTurn();
+    this.layout = this.board.getLayout();
   }
 
-  pause(): void {
-    this.paused = true;
-    this.updateInfoBar();
-  }
-
-  delay = (amount: number) => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, amount);
-    });
-  }
-
-  reset(): void {
-    this.paused = true;
-    this.board = null; // destroy?
+  resetBoard(): void {
+    this.board = null;
     this.layout = null;
-    this.board = new Board(this.boardHeight, this.boardWidth, this.defaultPopulation);
-    this.layout = this.board.getLayout();
-    this.updateInfoBar();
   }
 
-  isPaused?(): boolean {
-    return this.paused;
-  }
-
-  setPopulation(population: number): void {
-    this.requestedPopulation = population;
-  }
-
-  getCurrentPopulation(): number  {
+  getCurrentPopulation(): number {
     return this.board.getCurrentPopulation();
   }
 
-  setBoardHeight(height: number): void {
-    this.boardHeight = height;
-  }
-
-  setBoardWidth(width: number): void {
-    this.boardWidth = width;
-  }
-
   getCurrentTurn(): number {
-    return this.board.getTurn();
+    return this.board.getCurrentTurn();
   }
 
   trackByFn(index: number, item: any): number {
     return item.id; // or index
-  }
-
-  updateInfoBar(): void {
-    this.infoBarComponent.currentPopulation = this.getCurrentPopulation();
-    this.infoBarComponent.currentTurn = this.getCurrentTurn();
-    this.infoBarComponent.paused = this.paused;
   }
 }

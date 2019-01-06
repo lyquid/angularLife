@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar.component';
 import { BoardComponent } from '../board/board.component';
 import { ControlsComponent } from '../controls/controls.component';
 import { InfoBarComponent } from '../info-bar/info-bar.component';
+import { OptionsComponent } from '../options/options.component';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -18,7 +19,8 @@ describe('NavbarComponent', () => {
         NavbarComponent,
         BoardComponent,
         ControlsComponent,
-        InfoBarComponent
+        InfoBarComponent,
+        OptionsComponent
       ],
       imports: [
         NoopAnimationsModule,
