@@ -1,4 +1,4 @@
-<!-- <mat-slider 
+<mat-slider 
   min="10" 
   max="90" 
   step="5" 
@@ -8,15 +8,4 @@
   [(value)]="population"
   (change)="updatePopulation()"
   [disabled]="!this.isPaused()">
-</mat-slider> -->
-
-<mat-slider 
-  min="10" 
-  max="90" 
-  step="5" 
-  thumbLabel
-  [displayWith]="formatLabel"
-  tickInterval="auto"
-  [(value)]="population">
 </mat-slider>
-{{population}}

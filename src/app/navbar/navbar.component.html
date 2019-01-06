@@ -8,10 +8,12 @@
       <app-controls 
         #controlsComponent 
         [boardComponent]="boardComponent" 
-        [optionsComponent]="optionsComponent"
-        [infoBarComponent]= "infoBarComponent">
+        [infoBarComponent]="infoBarComponent">
       </app-controls>
-      <app-options #optionsComponent></app-options>
+      <app-options 
+        #optionsComponent
+        [controlsComponent]="controlsComponent">
+      </app-options>
       <!-- <a mat-list-item href="#">Link 1</a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a> -->

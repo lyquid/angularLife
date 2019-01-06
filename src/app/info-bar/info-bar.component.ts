@@ -13,5 +13,4 @@ export class InfoBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
 }

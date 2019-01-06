@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { OptionsService } from '../options/options.service';
+import { ControlsComponent } from '../controls/controls.component';
 
 @Component({
   selector: 'app-options',
@@ -6,20 +9,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./options.component.scss']
 })
 export class OptionsComponent implements OnInit {
-  private readonly defaultBoardHeight = 40;
-  private readonly defaultBoardWidth = 60;
-  private readonly defaultPopulation = 35;
   boardHeight: number;
   boardWidth: number;
   population: number;
+  @Input() controlsComponent: ControlsComponent;
 
-  constructor() {
-    this.boardHeight = this.defaultBoardHeight;
-    this.boardWidth = this.defaultBoardWidth;
-    this.population = this.defaultPopulation;
+  constructor(private options: OptionsService) { }
+
+  ngOnInit() {
+    this.boardHeight = this.options.boardHeight;
+    this.boardWidth = this.options.boardWidth;
+    this.population = this.options.population;
   }
 
-  ngOnInit() { }
+  updatePopulation() {
+    this.options.population = this.population;
+    this.controlsComponent.reset();
+  }
+
+  isPaused?(): boolean {
+    return this.controlsComponent.isPaused();
+  }
 
   formatLabel(value: number | null): string {
     if (!value) {

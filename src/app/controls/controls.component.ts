@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { BoardComponent } from '../board/board.component';
-import { OptionsComponent } from '../options/options.component';
 import { InfoBarComponent } from '../info-bar/info-bar.component';
+import { OptionsService } from '../options/options.service';
 
 @Component({
   selector: 'app-controls',
@@ -12,16 +12,15 @@ import { InfoBarComponent } from '../info-bar/info-bar.component';
 export class ControlsComponent implements OnInit {
   private paused = true;
   @Input() boardComponent: BoardComponent;
-  @Input() optionsComponent: OptionsComponent;
   @Input() infoBarComponent: InfoBarComponent;
 
-  constructor() { }
+  constructor(private options: OptionsService) { }
 
   ngOnInit() {
     this.boardComponent.createBoard(
-      this.optionsComponent.boardHeight,
-      this.optionsComponent.boardWidth,
-      this.optionsComponent.population
+      this.options.boardHeight,
+      this.options.boardWidth,
+      this.options.population
     );
     this.updateInfoBar();
   }
@@ -56,9 +55,9 @@ export class ControlsComponent implements OnInit {
     this.paused = true;
     this.boardComponent.resetBoard();
     this.boardComponent.createBoard(
-      this.optionsComponent.boardHeight,
-      this.optionsComponent.boardWidth,
-      this.optionsComponent.population
+      this.options.boardHeight,
+      this.options.boardWidth,
+      this.options.population
     );
     this.updateInfoBar();
   }
