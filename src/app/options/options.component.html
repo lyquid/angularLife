@@ -8,7 +8,7 @@
   [displayWith]="formatLabel"
   tickInterval="1"
   [(value)]="population"
-  (change)="updatePopulation()"
+  (change)="updateOptions()"
   [disabled]="!this.isPaused()">
 </mat-slider>
 <mat-divider></mat-divider>
@@ -21,7 +21,7 @@
   color="accent"
   tickInterval="2"
   [(value)]="boardWidth"
-  (change)="updateSize()"
+  (change)="updateOptions()"
   [disabled]="!this.isPaused()">
 </mat-slider>
 width: {{boardWidth}}
@@ -33,15 +33,15 @@ width: {{boardWidth}}
   color="accent"
   tickInterval="2"
   [(value)]="boardHeight"
-  (change)="updateSize()"
+  (change)="updateOptions()"
   [disabled]="!this.isPaused()">
 </mat-slider>
 height {{boardHeight}}
 <mat-divider></mat-divider>
 <p>Delay: {{delay}}ms.</p>
 <mat-slider 
-  min="250" 
-  max="1000" 
+  min="100" 
+  max="2000" 
   step="50" 
   thumbLabel
   color="accent"
@@ -49,4 +49,12 @@ height {{boardHeight}}
   [(value)]="delay"
   (change)="updateSpeed()">
 </mat-slider>
+<mat-divider></mat-divider>
+<button 
+  mat-flat-button 
+  color="warn" 
+  (click)="setDefaults()" 
+  [disabled]="!this.isPaused()">
+  Defaults
+</button>
 <mat-divider></mat-divider>

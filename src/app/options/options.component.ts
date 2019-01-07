@@ -18,25 +18,35 @@ export class OptionsComponent implements OnInit {
   constructor(private options: OptionsService) { }
 
   ngOnInit() {
+    this.getOptions();
+  }
+
+  getOptions(): void {
     this.boardHeight = this.options.boardHeight;
     this.boardWidth = this.options.boardWidth;
     this.population = this.options.population;
     this.delay = this.options.delay;
   }
 
-  updatePopulation(): void {
-    this.options.population = this.population;
-    this.controlsComponent.reset();
-  }
-
-  updateSize(): void {
+  setOptions(): void {
     this.options.boardHeight = this.boardHeight;
     this.options.boardWidth = this.boardWidth;
+    this.options.population = this.population;
+  }
+
+  updateOptions(): void {
+    this.setOptions();
     this.controlsComponent.reset();
   }
 
   updateSpeed(): void {
     this.options.delay = this.delay;
+  }
+
+  setDefaults(): void {
+    this.options.setDefaults();
+    this.getOptions();
+    this.controlsComponent.reset();
   }
 
   isPaused?(): boolean {
