@@ -12,7 +12,7 @@
   [disabled]="!this.isPaused()">
 </mat-slider>
 <mat-divider></mat-divider>
-<p>Size</p>
+<p>Size {{boardWidth}}x{{boardHeight}}</p>
 <mat-slider 
   min="10" 
   max="100" 
@@ -37,4 +37,16 @@ width: {{boardWidth}}
   [disabled]="!this.isPaused()">
 </mat-slider>
 height {{boardHeight}}
+<mat-divider></mat-divider>
+<p>Delay: {{delay}}ms.</p>
+<mat-slider 
+  min="250" 
+  max="1000" 
+  step="50" 
+  thumbLabel
+  color="accent"
+  tickInterval="1"
+  [(value)]="delay"
+  (change)="updateSpeed()">
+</mat-slider>
 <mat-divider></mat-divider>

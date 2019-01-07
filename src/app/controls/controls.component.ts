@@ -10,29 +10,24 @@ import { OptionsService } from '../options/options.service';
   styleUrls: ['./controls.component.scss']
 })
 export class ControlsComponent implements OnInit {
-  private paused = true;
+  private paused: boolean;
   @Input() boardComponent: BoardComponent;
   @Input() infoBarComponent: InfoBarComponent;
 
   constructor(private options: OptionsService) { }
 
   ngOnInit() {
-    this.boardComponent.createBoard(
-      this.options.boardHeight,
-      this.options.boardWidth,
-      this.options.population
-    );
-    this.updateInfoBar();
+    this.reset();
   }
 
   async play() {
     this.paused = false;
     this.updateInfoBar();
-    await this.delay(500);
+    await this.delay(this.options.delay);
     while (!this.paused) {
       this.boardComponent.nextTurn();
       this.updateInfoBar();
-      await this.delay(500);
+      await this.delay(this.options.delay);
     }
   }
 

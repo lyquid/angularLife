@@ -12,6 +12,7 @@ export class OptionsComponent implements OnInit {
   boardHeight: number;
   boardWidth: number;
   population: number;
+  delay: number;
   @Input() controlsComponent: ControlsComponent;
 
   constructor(private options: OptionsService) { }
@@ -20,17 +21,22 @@ export class OptionsComponent implements OnInit {
     this.boardHeight = this.options.boardHeight;
     this.boardWidth = this.options.boardWidth;
     this.population = this.options.population;
+    this.delay = this.options.delay;
   }
 
-  updatePopulation() {
+  updatePopulation(): void {
     this.options.population = this.population;
     this.controlsComponent.reset();
   }
 
-  updateSize() {
+  updateSize(): void {
     this.options.boardHeight = this.boardHeight;
     this.options.boardWidth = this.boardWidth;
     this.controlsComponent.reset();
+  }
+
+  updateSpeed(): void {
+    this.options.delay = this.delay;
   }
 
   isPaused?(): boolean {
