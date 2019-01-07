@@ -27,6 +27,12 @@ export class OptionsComponent implements OnInit {
     this.controlsComponent.reset();
   }
 
+  updateSize() {
+    this.options.boardHeight = this.boardHeight;
+    this.options.boardWidth = this.boardWidth;
+    this.controlsComponent.reset();
+  }
+
   isPaused?(): boolean {
     return this.controlsComponent.isPaused();
   }

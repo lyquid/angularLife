@@ -3,22 +3,24 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Options</mat-toolbar>
+    <mat-toolbar>Controls</mat-toolbar>
+    <mat-divider></mat-divider>
     <mat-nav-list>
       <app-controls 
+        mat-list-item
         #controlsComponent 
         [boardComponent]="boardComponent" 
         [infoBarComponent]="infoBarComponent">
       </app-controls>
+      <mat-divider></mat-divider>
       <app-options 
+        mat-list-item
         #optionsComponent
         [controlsComponent]="controlsComponent">
       </app-options>
-      <!-- <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a> -->
     </mat-nav-list>
   </mat-sidenav>
+  
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
