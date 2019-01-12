@@ -1,8 +1,5 @@
 <mat-divider></mat-divider>
-<app-population
-  (populationChange)="onPopulationChange($event)"
-  [populationSlider]="population">
-</app-population>
+<app-population [controlsComponent]="controlsComponent"></app-population>
 <mat-divider></mat-divider>
 <app-size [controlsComponent]="controlsComponent"></app-size>
 <mat-divider></mat-divider>

@@ -1,4 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { OptionsService } from '../options.service';
+import { ControlsComponent } from 'src/app/controls/controls.component';
 
 @Component({
   selector: 'app-population',
@@ -6,15 +9,18 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./population.component.scss']
 })
 export class PopulationComponent implements OnInit {
-  @Input() populationSlider: number;
-  @Output() populationChange = new EventEmitter<number>();
+  population: number;
+  @Input() controlsComponent: ControlsComponent;
 
-  constructor() { }
+  constructor(private optionsService: OptionsService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.population = this.optionsService.population;
+   }
 
-  onChange(): void {
-    this.populationChange.emit(this.populationSlider);
+  updatePopulation(): void {
+    this.optionsService.population = this.population;
+    this.controlsComponent.reset();
   }
 
   formatLabel(value: number | null): string {

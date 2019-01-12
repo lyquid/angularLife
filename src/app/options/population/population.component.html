@@ -1,4 +1,4 @@
-<p>Population: {{populationSlider}}%</p>
+<p>Population: {{population}}%</p>
 <!-- <mat-slider 
   [disabled]="!this.isPaused()">
 </mat-slider> -->
@@ -10,6 +10,6 @@
   color="accent"
   [displayWith]="formatLabel"
   tickInterval="1"
-  [(value)]="populationSlider"
-  (change)="onChange()">
+  [(value)]="population"
+  (change)="updatePopulation()">
 </mat-slider>
