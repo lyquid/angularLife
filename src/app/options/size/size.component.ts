@@ -16,15 +16,15 @@ export class SizeComponent implements OnInit {
   constructor(private optionsService: OptionsService) { }
 
   ngOnInit() {
-    this.getSizes();
+    this.getSize();
   }
 
-  getSizes(): void {
+  getSize(): void {
     this.boardHeight = this.optionsService.boardHeight;
     this.boardWidth = this.optionsService.boardWidth;
   }
 
-  updateSizes(): void {
+  setSize(): void {
     this.optionsService.boardHeight = this.boardHeight;
     this.optionsService.boardWidth = this.boardWidth;
     this.controlsComponent.reset();

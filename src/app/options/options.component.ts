@@ -2,7 +2,9 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import { OptionsService } from './options.service';
 import { ControlsComponent } from '../controls/controls.component';
-// import { PopulationComponent } from './population/population.component';
+import { PopulationComponent } from './population/population.component';
+import { DelayComponent } from './delay/delay.component';
+import { SizeComponent } from './size/size.component';
 
 @Component({
   selector: 'app-options',
@@ -10,35 +12,20 @@ import { ControlsComponent } from '../controls/controls.component';
   styleUrls: ['./options.component.scss']
 })
 export class OptionsComponent implements OnInit {
-  delay: number;
   @Input() controlsComponent: ControlsComponent;
-  // @ViewChild(PopulationComponent) private populationComponent: PopulationComponent;
+  @ViewChild(PopulationComponent) private populationComponent: PopulationComponent;
+  @ViewChild(SizeComponent) private sizeComponent: SizeComponent;
+  @ViewChild(DelayComponent) private delayComponent: DelayComponent;
 
-  constructor(private optionsService: OptionsService) {
-    this.getOptions();
-  }
+  constructor(private optionsService: OptionsService) { }
 
   ngOnInit() { }
 
-  getOptions(): void {
-    // this.population = this.optionsService.population;
-    this.delay = this.optionsService.delay;
-  }
-
-  updateSpeed(): void {
-    this.optionsService.delay = this.delay;
-  }
-
   setDefaults(): void {
     this.optionsService.setDefaults();
-    this.getOptions();
-    this.controlsComponent.reset();
-    ////////
-    // this.populationComponent.populationSlider = this.population;
-  }
-
-  onPopulationChange(population: number): void {
-    this.optionsService.population = population;
+    this.populationComponent.getPopulation();
+    this.sizeComponent.getSize();
+    this.delayComponent.getDelay();
     this.controlsComponent.reset();
   }
 

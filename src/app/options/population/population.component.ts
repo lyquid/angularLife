@@ -15,10 +15,14 @@ export class PopulationComponent implements OnInit {
   constructor(private optionsService: OptionsService) { }
 
   ngOnInit() {
-    this.population = this.optionsService.population;
-   }
+    this.getPopulation();
+  }
 
-  updatePopulation(): void {
+  getPopulation(): void {
+    this.population = this.optionsService.population;
+  }
+
+  setPopulation(): void {
     this.optionsService.population = this.population;
     this.controlsComponent.reset();
   }

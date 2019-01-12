@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { AppCustomMaterialModule } from '../../app-custom-material.module';
 import { DelayComponent } from './delay.component';
 
 describe('DelayComponent', () => {
@@ -8,7 +9,8 @@ describe('DelayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DelayComponent ]
+      declarations: [ DelayComponent ],
+      imports: [AppCustomMaterialModule]
     })
     .compileComponents();
   }));

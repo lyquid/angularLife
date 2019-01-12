@@ -13,10 +13,14 @@ export class DelayComponent implements OnInit {
   constructor(private optionsService: OptionsService) { }
 
   ngOnInit() {
+    this.getDelay();
+  }
+
+  getDelay(): void {
     this.delay = this.optionsService.delay;
   }
 
-  updateDelay(): void {
+  setDelay(): void {
     this.optionsService.delay = this.delay;
   }
 }

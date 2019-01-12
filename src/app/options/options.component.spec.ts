@@ -2,9 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppCustomMaterialModule } from '../app-custom-material.module';
 import { OptionsComponent } from './options.component';
+import { OptionsService } from './options.service';
 import { ControlsComponent } from '../controls/controls.component';
 import { PopulationComponent } from './population/population.component';
-import { OptionsService } from './options.service';
+import { SizeComponent } from './size/size.component';
+import { DelayComponent } from './delay/delay.component';
 
 describe('OptionsComponent', () => {
   let component: OptionsComponent;
@@ -15,7 +17,9 @@ describe('OptionsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         OptionsComponent,
-        PopulationComponent
+        PopulationComponent,
+        SizeComponent,
+        DelayComponent
       ],
       imports: [ AppCustomMaterialModule ]
     })

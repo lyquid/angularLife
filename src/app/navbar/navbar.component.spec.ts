@@ -9,6 +9,8 @@ import { ControlsComponent } from '../controls/controls.component';
 import { InfoBarComponent } from '../info-bar/info-bar.component';
 import { OptionsComponent } from '../options/options.component';
 import { PopulationComponent } from '../options/population/population.component';
+import { DelayComponent } from '../options/delay/delay.component';
+import { SizeComponent } from '../options/size/size.component';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -22,7 +24,9 @@ describe('NavbarComponent', () => {
         ControlsComponent,
         InfoBarComponent,
         OptionsComponent,
-        PopulationComponent
+        PopulationComponent,
+        DelayComponent,
+        SizeComponent
       ],
       imports: [
         NoopAnimationsModule,
