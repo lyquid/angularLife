@@ -9,7 +9,7 @@ export class AppPage {
     return element(by.css('app-root h1')).getText();
   }
 
-  getOptionsText() {
+  getControlsText() {
     return element(by.className('mat-toolbar mat-toolbar-single-row')).getText();
   }
 

@@ -12,9 +12,9 @@ describe('workspace-project App', () => {
     expect(page.getTitleText()).toEqual('angularLife');
   }); */
 
-  it('should display options', () => {
+  it('should display controls', () => {
     page.navigateTo();
-    expect(page.getOptionsText()).toEqual('Options');
+    expect(page.getControlsText()).toEqual('Controls');
   });
 
   it('should display a toolbar', () => {
