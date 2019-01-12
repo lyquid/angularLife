@@ -77,18 +77,19 @@ export class Board {
 
   nextTurn(): void {
     const nextLayout = [];
+    let neighbors: number;
     for (let i = 0; i < this.layout.length; i++) {
       nextLayout[i] = [];
       for (let j = 0; j < this.layout[i].length; j++) {
         nextLayout[i][j] = this.layout[i][j];
-        // optimize this
+        neighbors = this.checkNeighbors(i, j);
         if (this.layout[i][j] === 1) {
-          if (this.checkNeighbors(i, j) < 2 || this.checkNeighbors(i, j) > 3) {
+          if (neighbors < 2 || neighbors > 3) {
             nextLayout[i][j] = 0;
             this.currentPopulation--;
           }
         } else {
-          if (this.checkNeighbors(i, j) === 3) {
+          if (neighbors === 3) {
             nextLayout[i][j] = 1;
             this.currentPopulation++;
           }
