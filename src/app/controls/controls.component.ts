@@ -14,7 +14,7 @@ export class ControlsComponent implements OnInit {
   @Input() boardComponent: BoardComponent;
   @Input() infoBarComponent: InfoBarComponent;
 
-  constructor(private options: OptionsService) { }
+  constructor(private optionsService: OptionsService) { }
 
   ngOnInit() {
     this.reset();
@@ -23,11 +23,11 @@ export class ControlsComponent implements OnInit {
   async play() {
     this.paused = false;
     this.updateInfoBar();
-    await this.delay(this.options.delay);
+    await this.delay(this.optionsService.delay);
     while (!this.paused) {
       this.boardComponent.nextTurn();
       this.updateInfoBar();
-      await this.delay(this.options.delay);
+      await this.delay(this.optionsService.delay);
     }
   }
 
@@ -50,9 +50,9 @@ export class ControlsComponent implements OnInit {
     this.paused = true;
     this.boardComponent.resetBoard();
     this.boardComponent.createBoard(
-      this.options.boardHeight,
-      this.options.boardWidth,
-      this.options.population
+      this.optionsService.boardHeight,
+      this.optionsService.boardWidth,
+      this.optionsService.population
     );
     this.updateInfoBar();
   }

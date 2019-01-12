@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppCustomMaterialModule } from '../app-custom-material.module';
 import { OptionsComponent } from './options.component';
 import { ControlsComponent } from '../controls/controls.component';
+import { PopulationComponent } from './population/population.component';
 import { OptionsService } from './options.service';
 
 describe('OptionsComponent', () => {
@@ -12,7 +13,10 @@ describe('OptionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OptionsComponent ],
+      declarations: [
+        OptionsComponent,
+        PopulationComponent
+      ],
       imports: [ AppCustomMaterialModule ]
     })
     .compileComponents();

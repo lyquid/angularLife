@@ -11,6 +11,7 @@ import { BoardComponent } from './board/board.component';
 import { ControlsComponent } from './controls/controls.component';
 import { InfoBarComponent } from './info-bar/info-bar.component';
 import { OptionsComponent } from './options/options.component';
+import { PopulationComponent } from './options/population/population.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { OptionsComponent } from './options/options.component';
     BoardComponent,
     ControlsComponent,
     InfoBarComponent,
-    OptionsComponent
+    OptionsComponent,
+    PopulationComponent
   ],
   imports: [
     BrowserModule,

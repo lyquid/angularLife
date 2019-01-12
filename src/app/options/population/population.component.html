@@ -1,0 +1,15 @@
+<p>Population: {{populationSlider}}%</p>
+<!-- <mat-slider 
+  [disabled]="!this.isPaused()">
+</mat-slider> -->
+<mat-slider 
+  min="10" 
+  max="90" 
+  step="5" 
+  thumbLabel
+  color="accent"
+  [displayWith]="formatLabel"
+  tickInterval="1"
+  [(value)]="populationSlider"
+  (change)="onChange()">
+</mat-slider>

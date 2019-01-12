@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import { OptionsService } from '../options/options.service';
 import { ControlsComponent } from '../controls/controls.component';
+import { PopulationComponent } from './population/population.component';
 
 @Component({
   selector: 'app-options',
@@ -14,24 +15,24 @@ export class OptionsComponent implements OnInit {
   population: number;
   delay: number;
   @Input() controlsComponent: ControlsComponent;
+  @ViewChild(PopulationComponent) private populationComponent: PopulationComponent;
 
-  constructor(private options: OptionsService) { }
-
-  ngOnInit() {
+  constructor(private optionsService: OptionsService) {
     this.getOptions();
   }
 
+  ngOnInit() { }
+
   getOptions(): void {
-    this.boardHeight = this.options.boardHeight;
-    this.boardWidth = this.options.boardWidth;
-    this.population = this.options.population;
-    this.delay = this.options.delay;
+    this.boardHeight = this.optionsService.boardHeight;
+    this.boardWidth = this.optionsService.boardWidth;
+    this.population = this.optionsService.population;
+    this.delay = this.optionsService.delay;
   }
 
   setOptions(): void {
-    this.options.boardHeight = this.boardHeight;
-    this.options.boardWidth = this.boardWidth;
-    this.options.population = this.population;
+    this.optionsService.boardHeight = this.boardHeight;
+    this.optionsService.boardWidth = this.boardWidth;
   }
 
   updateOptions(): void {
@@ -40,23 +41,22 @@ export class OptionsComponent implements OnInit {
   }
 
   updateSpeed(): void {
-    this.options.delay = this.delay;
+    this.optionsService.delay = this.delay;
   }
 
   setDefaults(): void {
-    this.options.setDefaults();
+    this.optionsService.setDefaults();
     this.getOptions();
+    this.populationComponent.populationSlider = this.population;
+    this.controlsComponent.reset();
+  }
+
+  onPopulationChange(population: number): void {
+    this.optionsService.population = population;
     this.controlsComponent.reset();
   }
 
   isPaused?(): boolean {
     return this.controlsComponent.isPaused();
-  }
-
-  formatLabel(value: number | null): string {
-    if (!value) {
-      return null;
-    }
-    return value.toString() + '%';
   }
 }

@@ -1,16 +1,8 @@
-<p>Population: {{population}}%</p>
-<mat-slider 
-  min="10" 
-  max="90" 
-  step="5" 
-  thumbLabel
-  color="accent"
-  [displayWith]="formatLabel"
-  tickInterval="1"
-  [(value)]="population"
-  (change)="updateOptions()"
-  [disabled]="!this.isPaused()">
-</mat-slider>
+<mat-divider></mat-divider>
+<app-population
+  (populationChange)="onPopulationChange($event)"
+  [populationSlider]="population">
+</app-population>
 <mat-divider></mat-divider>
 <p>Size {{boardWidth}}x{{boardHeight}}</p>
 <mat-slider 

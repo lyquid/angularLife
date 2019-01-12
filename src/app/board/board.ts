@@ -81,6 +81,7 @@ export class Board {
       nextLayout[i] = [];
       for (let j = 0; j < this.layout[i].length; j++) {
         nextLayout[i][j] = this.layout[i][j];
+        // optimize this
         if (this.layout[i][j] === 1) {
           if (this.checkNeighbors(i, j) < 2 || this.checkNeighbors(i, j) > 3) {
             nextLayout[i][j] = 0;

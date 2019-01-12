@@ -7,7 +7,7 @@ export class OptionsService {
   private readonly defaultBoardHeight = 40;
   private readonly defaultBoardWidth = 60;
   private readonly defaultPopulation = 35;
-  private readonly defaultDelay = 800;
+  private readonly defaultDelay = 500;
   boardHeight: number;
   boardWidth: number;
   population: number;
