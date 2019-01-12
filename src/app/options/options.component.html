@@ -4,31 +4,7 @@
   [populationSlider]="population">
 </app-population>
 <mat-divider></mat-divider>
-<p>Size {{boardWidth}}x{{boardHeight}}</p>
-<mat-slider 
-  min="10" 
-  max="100" 
-  step="5" 
-  thumbLabel
-  color="accent"
-  tickInterval="2"
-  [(value)]="boardWidth"
-  (change)="updateOptions()"
-  [disabled]="!this.isPaused()">
-</mat-slider>
-width: {{boardWidth}}
-<mat-slider 
-  min="10" 
-  max="60" 
-  step="5" 
-  thumbLabel
-  color="accent"
-  tickInterval="2"
-  [(value)]="boardHeight"
-  (change)="updateOptions()"
-  [disabled]="!this.isPaused()">
-</mat-slider>
-height {{boardHeight}}
+<app-size [controlsComponent]="controlsComponent"></app-size>
 <mat-divider></mat-divider>
 <p>Delay: {{delay}}ms.</p>
 <mat-slider 

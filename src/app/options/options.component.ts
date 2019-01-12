@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
-import { OptionsService } from '../options/options.service';
+import { OptionsService } from './options.service';
 import { ControlsComponent } from '../controls/controls.component';
 import { PopulationComponent } from './population/population.component';
 
@@ -10,8 +10,6 @@ import { PopulationComponent } from './population/population.component';
   styleUrls: ['./options.component.scss']
 })
 export class OptionsComponent implements OnInit {
-  boardHeight: number;
-  boardWidth: number;
   population: number;
   delay: number;
   @Input() controlsComponent: ControlsComponent;
@@ -24,20 +22,8 @@ export class OptionsComponent implements OnInit {
   ngOnInit() { }
 
   getOptions(): void {
-    this.boardHeight = this.optionsService.boardHeight;
-    this.boardWidth = this.optionsService.boardWidth;
     this.population = this.optionsService.population;
     this.delay = this.optionsService.delay;
-  }
-
-  setOptions(): void {
-    this.optionsService.boardHeight = this.boardHeight;
-    this.optionsService.boardWidth = this.boardWidth;
-  }
-
-  updateOptions(): void {
-    this.setOptions();
-    this.controlsComponent.reset();
   }
 
   updateSpeed(): void {
@@ -47,8 +33,9 @@ export class OptionsComponent implements OnInit {
   setDefaults(): void {
     this.optionsService.setDefaults();
     this.getOptions();
-    this.populationComponent.populationSlider = this.population;
     this.controlsComponent.reset();
+    ////////
+    this.populationComponent.populationSlider = this.population;
   }
 
   onPopulationChange(population: number): void {
