@@ -13,6 +13,7 @@ import { InfoBarComponent } from './info-bar/info-bar.component';
 import { OptionsComponent } from './options/options.component';
 import { PopulationComponent } from './options/population/population.component';
 import { SizeComponent } from './options/size/size.component';
+import { DelayComponent } from './options/delay/delay.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SizeComponent } from './options/size/size.component';
     InfoBarComponent,
     OptionsComponent,
     PopulationComponent,
-    SizeComponent
+    SizeComponent,
+    DelayComponent
   ],
   imports: [
     BrowserModule,

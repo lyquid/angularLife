@@ -3,17 +3,7 @@
 <mat-divider></mat-divider>
 <app-size [controlsComponent]="controlsComponent"></app-size>
 <mat-divider></mat-divider>
-<p>Delay: {{delay}}ms.</p>
-<mat-slider 
-  min="100" 
-  max="2000" 
-  step="50" 
-  thumbLabel
-  color="accent"
-  tickInterval="1"
-  [(value)]="delay"
-  (change)="updateSpeed()">
-</mat-slider>
+<app-delay></app-delay>
 <mat-divider></mat-divider>
 <button 
   mat-flat-button 
