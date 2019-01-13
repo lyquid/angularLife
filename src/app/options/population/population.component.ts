@@ -10,12 +10,14 @@ import { ControlsComponent } from 'src/app/controls/controls.component';
 })
 export class PopulationComponent implements OnInit {
   population: number;
+  disabled: boolean;
   @Input() controlsComponent: ControlsComponent;
 
   constructor(private optionsService: OptionsService) { }
 
   ngOnInit() {
     this.getPopulation();
+    this.disabled = false;
   }
 
   getPopulation(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { BoardComponent } from '../board/board.component';
 import { InfoBarComponent } from '../info-bar/info-bar.component';
@@ -13,6 +13,7 @@ export class ControlsComponent implements OnInit {
   private paused: boolean;
   @Input() boardComponent: BoardComponent;
   @Input() infoBarComponent: InfoBarComponent;
+  @Output() disableOptions = new EventEmitter<boolean>();
 
   constructor(private optionsService: OptionsService) { }
 
@@ -21,6 +22,7 @@ export class ControlsComponent implements OnInit {
   }
 
   async play() {
+    this.disableOptions.emit(true);
     this.paused = false;
     this.updateInfoBar();
     await this.delay(this.optionsService.delay);
@@ -37,7 +39,8 @@ export class ControlsComponent implements OnInit {
     });
   }
 
-  pause() {
+  pause(): void {
+    this.disableOptions.emit(false);
     this.paused = true;
     this.updateInfoBar();
   }
@@ -47,6 +50,7 @@ export class ControlsComponent implements OnInit {
   }
 
   reset(): void {
+    this.disableOptions.emit(false);
     this.paused = true;
     this.boardComponent.resetBoard();
     this.boardComponent.createBoard(

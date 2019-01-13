@@ -10,7 +10,8 @@
         mat-list-item
         #controlsComponent 
         [boardComponent]="boardComponent" 
-        [infoBarComponent]="infoBarComponent">
+        [infoBarComponent]="infoBarComponent"
+        (disableOptions)="onDisableOptionsRequest($event)">
       </app-controls>
       <app-options 
         mat-list-item

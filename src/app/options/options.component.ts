@@ -29,6 +29,16 @@ export class OptionsComponent implements OnInit {
     this.controlsComponent.reset();
   }
 
+  disableOptions(disabled: boolean): void {
+    if (disabled) {
+      this.populationComponent.disabled = true;
+      this.sizeComponent.disabled = true;
+    } else {
+      this.populationComponent.disabled = false;
+      this.sizeComponent.disabled = false;
+    }
+  }
+
   isPaused?(): boolean {
     return this.controlsComponent.isPaused();
   }

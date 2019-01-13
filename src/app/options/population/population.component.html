@@ -1,7 +1,4 @@
 <p>Population: {{population}}%</p>
-<!-- <mat-slider 
-  [disabled]="!this.isPaused()">
-</mat-slider> -->
 <mat-slider 
   min="10" 
   max="90" 
@@ -11,5 +8,6 @@
   [displayWith]="formatLabel"
   tickInterval="1"
   [(value)]="population"
-  (change)="setPopulation()">
+  (change)="setPopulation()"
+  [disabled]="disabled">
 </mat-slider>

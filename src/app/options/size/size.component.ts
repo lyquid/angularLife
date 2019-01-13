@@ -11,12 +11,14 @@ import { ControlsComponent } from 'src/app/controls/controls.component';
 export class SizeComponent implements OnInit {
   boardHeight: number;
   boardWidth: number;
+  disabled: boolean;
   @Input() controlsComponent: ControlsComponent;
 
   constructor(private optionsService: OptionsService) { }
 
   ngOnInit() {
     this.getSize();
+    this.disabled = false;
   }
 
   getSize(): void {
