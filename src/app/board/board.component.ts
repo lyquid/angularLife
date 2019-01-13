@@ -20,6 +20,14 @@ export class BoardComponent implements OnInit {
     this.layout = this.board.getLayout();
   }
 
+  getCurrentPopulation(): number {
+    return this.board.getCurrentPopulation();
+  }
+
+  getCurrentTurn(): number {
+    return this.board.getCurrentTurn();
+  }
+
   nextTurn(): void {
     this.board.nextTurn();
     this.layout = this.board.getLayout();
@@ -28,14 +36,6 @@ export class BoardComponent implements OnInit {
   resetBoard(): void {
     this.board = null;
     this.layout = null;
-  }
-
-  getCurrentPopulation(): number {
-    return this.board.getCurrentPopulation();
-  }
-
-  getCurrentTurn(): number {
-    return this.board.getCurrentTurn();
   }
 
   trackByFn(index: number, item: any): number {

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { OptionsService } from '../options/options.service';
 import { BoardComponent } from '../board/board.component';
 import { InfoBarComponent } from '../info-bar/info-bar.component';
-import { OptionsService } from '../options/options.service';
 
 @Component({
   selector: 'app-controls',
@@ -21,6 +21,22 @@ export class ControlsComponent implements OnInit {
     this.reset();
   }
 
+  delay = (amount: number) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, amount);
+    });
+  }
+
+  isPaused?(): boolean {
+    return this.paused;
+  }
+
+  pause(): void {
+    this.disableOptions.emit(false);
+    this.paused = true;
+    this.updateInfoBar();
+  }
+
   async play() {
     this.disableOptions.emit(true);
     this.paused = false;
@@ -31,22 +47,6 @@ export class ControlsComponent implements OnInit {
       this.updateInfoBar();
       await this.delay(this.optionsService.delay);
     }
-  }
-
-  delay = (amount: number) => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, amount);
-    });
-  }
-
-  pause(): void {
-    this.disableOptions.emit(false);
-    this.paused = true;
-    this.updateInfoBar();
-  }
-
-  isPaused?(): boolean {
-    return this.paused;
   }
 
   reset(): void {
