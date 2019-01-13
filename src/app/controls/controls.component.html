@@ -1,3 +1,5 @@
-<button mat-flat-button color="primary" [disabled]="!this.isPaused()" (click)="play()">Play</button>
-<button mat-flat-button color="accent" [disabled]="this.isPaused()" (click)="pause()">Pause</button>
-<button mat-flat-button color="warn" (click)="reset()">Reset</button>
+<div class="controls">
+  <button mat-flat-button color="primary" [disabled]="!this.isPaused()" (click)="play()">Play</button>
+  <button mat-flat-button color="accent" [disabled]="this.isPaused()" (click)="pause()">Pause</button>
+  <button mat-flat-button color="warn" (click)="reset()">Reset</button> 
+</div>
