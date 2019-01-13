@@ -1,8 +1,8 @@
 <div class="grid-container">
   <div *ngFor="let x of layout; trackBy: trackByFn">
     <div *ngFor="let y of x; trackBy: trackByFn" class="grid-item">
-      <div *ngIf="y===1" class="cell"></div>
-      <div *ngIf="y===0"></div>
+      <div *ngIf="y===1; else notCell" class="cell"></div>
+      <ng-template #notCell></ng-template>
     </div>
   </div>
 </div>
