@@ -3,7 +3,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { OptionsService } from './options.service';
 import { ControlsComponent } from '../controls/controls.component';
 import { PopulationComponent } from './population/population.component';
-import { DelayComponent } from './delay/delay.component';
+import { SpeedComponent } from './speed/speed.component';
 import { SizeComponent } from './size/size.component';
 
 @Component({
@@ -15,7 +15,7 @@ export class OptionsComponent implements OnInit {
   @Input() controlsComponent: ControlsComponent;
   @ViewChild(PopulationComponent) private populationComponent: PopulationComponent;
   @ViewChild(SizeComponent) private sizeComponent: SizeComponent;
-  @ViewChild(DelayComponent) private delayComponent: DelayComponent;
+  @ViewChild(SpeedComponent) private delayComponent: SpeedComponent;
 
   constructor(private optionsService: OptionsService) { }
 

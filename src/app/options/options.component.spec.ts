@@ -6,7 +6,7 @@ import { OptionsService } from './options.service';
 import { ControlsComponent } from '../controls/controls.component';
 import { PopulationComponent } from './population/population.component';
 import { SizeComponent } from './size/size.component';
-import { DelayComponent } from './delay/delay.component';
+import { SpeedComponent } from './speed/speed.component';
 
 describe('OptionsComponent', () => {
   let component: OptionsComponent;
@@ -19,7 +19,7 @@ describe('OptionsComponent', () => {
         OptionsComponent,
         PopulationComponent,
         SizeComponent,
-        DelayComponent
+        SpeedComponent
       ],
       imports: [ AppCustomMaterialModule ]
     })

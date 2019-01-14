@@ -10,7 +10,7 @@ import { ControlsComponent } from './controls/controls.component';
 import { InfoBarComponent } from './info-bar/info-bar.component';
 import { OptionsComponent } from './options/options.component';
 import { PopulationComponent } from './options/population/population.component';
-import { DelayComponent } from './options/delay/delay.component';
+import { SpeedComponent } from './options/speed/speed.component';
 import { SizeComponent } from './options/size/size.component';
 
 describe('AppComponent', () => {
@@ -24,7 +24,7 @@ describe('AppComponent', () => {
         InfoBarComponent,
         OptionsComponent,
         PopulationComponent,
-        DelayComponent,
+        SpeedComponent,
         SizeComponent
       ],
       imports: [
